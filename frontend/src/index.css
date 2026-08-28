@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-obsidian-950 text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(30, 41, 59, 0.4) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-obsidian-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-obsidian-700 rounded-full hover:bg-precision-cyan;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  @apply bg-obsidian-900/40 backdrop-blur-md border border-slate-800/60 rounded-xl shadow-xl;
+}
+
+.glass-card {
+  @apply bg-obsidian-800/30 backdrop-blur-sm border border-slate-800/40 rounded-lg p-5 shadow-md hover:border-precision-cyan/30 transition-all duration-300;
+}
+
+/* Custom glow utilities */
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+.glow-cyan-hover:hover {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+  @apply border-precision-cyan/40;
+}
+
+/* Micro-animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.9;
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
